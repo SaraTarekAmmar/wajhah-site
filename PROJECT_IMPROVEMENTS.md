@@ -193,16 +193,86 @@ links/0 duplicates, all live contrast combos pass AA). Re-verified in
 browser after the CSS swap: no visual regression, no console errors,
 mobile menu still keyboard-operable.
 
+## Round 4 — applied UX writing / copywriting / CRO skills (2026-10-11)
+
+Loaded six skills (`ux-copy`, `copywriting`, `cro-optimization`,
+`headline-psychologist`, `social-proof-architect`, `arabic-ux-writing`) and
+applied their patterns directly to the live copy, rather than just reading
+them. The `copywriting` skill's hard rule against fabricating claims or
+testimonials turned out to overlap directly with two items `DEPLOY_CHECKLIST.md`
+already flagged as "must fix" — so this round fixed those for real instead of
+just re-flagging them.
+
+**Honesty fixes (claim-discipline, not just polish):**
+- The logo marquee claimed "Trusted by" six named, entirely fictional
+  companies (FINTECH CO, NOVA RETAIL, etc.). Replaced with an honest
+  "Experience across: Fintech · E-commerce · Healthcare · Logistics ·
+  EdTech · Mobility" framing — same visual pattern, no fabricated clients.
+- The testimonial section attributed an invented quote to a named fictional
+  person ("Sara Al-Mutairi, Head of Product, Nova Retail"). Replaced with an
+  unattributed studio philosophy pull-quote ("The Wajhah way") — same visual
+  rhythm on the page, nothing pretending to be a real customer's words.
+- Both resolve "must fix" items from `DEPLOY_CHECKLIST.md` directly, using
+  the skill's claim-discipline principle rather than inventing new content
+  to replace fake content with.
+- Left the hero stats (40+ projects, 98% satisfaction) untouched — already
+  tracked in the checklist, and "softening" them with different invented
+  numbers would just be different fabrication, not a fix.
+
+**Headline (headline-psychologist framework):**
+- Old: "We design interfaces that tell stories" — poetic but not
+  differentiated or stage-appropriate for a buyer actively comparing agencies.
+- New: "Great design. Shipped in weeks, not months." — leads with
+  differentiation + a concrete, already-true claim (consistent with, not
+  contradicting, the existing "Starts in days, not months" comparison-table
+  row — that one's about kickoff speed, this one's about delivery speed).
+
+**Form microcopy (ux-copy skill) — also fixed a latent bug:**
+- Button copy: "Get in touch" → "Request a call" (more specific about what
+  happens next, per ux-copy's "avoid generic labels" guidance).
+- The old submit handler did `button.textContent = '✓'`, which destroyed the
+  button's `data-i18n` spans — meaning after one submit, the language toggle
+  would permanently stop updating that button's text. Fixed by adding a
+  separate `role="status" aria-live="polite"` confirmation line below the
+  form instead of mutating the button at all. Verified in-browser: submitted
+  the form, then toggled language — button and confirmation message both
+  still translate correctly post-submit.
+- Added a one-line trust microcopy ("No spam. We won't share your email.")
+  below the form — cheap, honest, standard CRO-friction reducer.
+
+**Arabic typography (arabic-ux-writing skill) — two real bugs found and fixed:**
+- `tracking-widest` was applied to two elements that render Arabic text (the
+  hero eyebrow label and the marquee) — letter-spacing breaks Arabic glyph
+  joining, a real rendering bug, not just a style preference. Fixed with a
+  scoped `html[lang="ar"] .tracking-widest { letter-spacing: normal; }`
+  rule (confirmed it does NOT affect the always-Latin "EN"/"AR" toggle
+  button, which uses `tracking-wider`, a different, unaffected utility).
+- The hero `<h1>`'s `leading-[0.95]` (tuned for Latin letterforms) was too
+  tight for Arabic — verified visually that Arabic descenders (ي ج ح) were
+  getting cramped between lines. Added `html[lang="ar"] h1 { line-height:
+  1.25; }`. Verified in-browser: clear line separation in Arabic, English
+  headline untouched.
+- Deliberately skipped the skill's font-size (+5-10% for Arabic) guidance —
+  would require touching every text-size utility class across the page for
+  uncertain benefit on a site that's already legible; noted here rather than
+  silently ignored.
+
+**Verification:** `npm test` → all three checks still pass (117 i18n pairs
+now, up from 103 — correctly reflecting the marquee's new pairs; 21 links;
+contrast unaffected). Rebuilt `dist/styles.css` (new `disabled:` variant
+classes needed a rebuild). Manually verified in-browser in both languages:
+headline, marquee, philosophy quote, and the full form submit→toggle-language
+flow.
+
 ## Best next task (if resuming)
 Two things are now tied for "most important," pick based on what's
 available:
 1. **Wire up the contact form** (still blocked on the client supplying a
    Formspree/Netlify Forms endpoint or a real inbox address — this is
    information, not engineering time).
-2. **Work through `DEPLOY_CHECKLIST.md`'s "Must fix" section** — this is
-   now the clearest, most concrete path to an actually-launchable site:
-   replace the placeholder domain, decide what to do about the fictional
-   case studies/testimonial/stats (replace with real ones or remove those
-   sections), and fix the dead social links. None of these need more
-   audits — they need real business information the agents in this
-   session couldn't fabricate responsibly.
+2. **Work through `DEPLOY_CHECKLIST.md`'s remaining "Must fix" items** — the
+   fake logos and fabricated testimonial are now resolved (Round 4); what's
+   left is the placeholder domain, the fictional case-study metrics/dead
+   links, the fabricated hero stats, and the dead social links. None of
+   these need more audits — they need real business information no amount
+   of further copywriting-skill work can substitute for.

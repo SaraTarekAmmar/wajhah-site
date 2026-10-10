@@ -56,6 +56,12 @@
   body{ background:#07140f; }
   html[lang="ar"] body{ font-family:'Tajawal', sans-serif; }
   html[lang="en"] body{ font-family:'Inter', sans-serif; }
+  /* Arabic typography (arabic-ux-writing skill): letter-spacing breaks Arabic glyph joining,
+     and the hero's tight display line-height was tuned for Latin letterforms — Arabic
+     descenders (ي ج ح) need more room to avoid clipping between lines. */
+  html[lang="ar"] .tracking-widest,
+  html[lang="ar"] .tracking-wide{ letter-spacing: normal; }
+  html[lang="ar"] h1{ line-height: 1.25; }
   .grain::before{
     content:"";
     position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.035;
@@ -167,8 +173,8 @@
     </div>
 
     <h1 class="leading-[0.95] font-black tracking-tight max-w-5xl" style="font-size:clamp(2.75rem, 10vw, 6rem)">
-      <span data-i18n="ar">نصمّم واجهات<br/>تُحكى <span class="grad-text">قصصها</span></span>
-      <span data-i18n="en">We design interfaces<br/>that <span class="grad-text">tell stories</span></span>
+      <span data-i18n="ar">تصميم استثنائي،<br/><span class="grad-text">يُطلق خلال أسابيع لا أشهر</span></span>
+      <span data-i18n="en">Great design.<br/>Shipped in <span class="grad-text">weeks, not months</span>.</span>
     </h1>
 
     <p class="mt-8 max-w-xl text-lg text-white/65 leading-relaxed">
@@ -209,11 +215,24 @@
 
 <!-- LOGO MARQUEE -->
 <section class="border-y border-line py-7 overflow-hidden bg-panel/40">
+  <!-- ponytail: deliberately industries, not fake named clients — see PROJECT_IMPROVEMENTS.md
+       Round 4 (copywriting skill's claim-discipline rule: no fabricated social proof). Swap for
+       real client logos once there are real clients to show. -->
   <div class="flex whitespace-nowrap marquee gap-16 text-white/35 font-bold text-xl tracking-widest">
-    <span data-i18n="ar">عملاء يثقون بنا</span><span data-i18n="en">Trusted by</span>
-    <span>FINTECH CO</span><span>NOVA RETAIL</span><span>ORBIT HEALTH</span><span>KANZ GROUP</span><span>LOOP MOBILITY</span><span>DAR LOGISTICS</span>
-    <span data-i18n="ar">عملاء يثقون بنا</span><span data-i18n="en">Trusted by</span>
-    <span>FINTECH CO</span><span>NOVA RETAIL</span><span>ORBIT HEALTH</span><span>KANZ GROUP</span><span>LOOP MOBILITY</span><span>DAR LOGISTICS</span>
+    <span data-i18n="ar">خبرة في قطاعات</span><span data-i18n="en">Experience across</span>
+    <span data-i18n="ar">فنتك</span><span data-i18n="en">Fintech</span>
+    <span data-i18n="ar">تجارة إلكترونية</span><span data-i18n="en">E-commerce</span>
+    <span data-i18n="ar">رعاية صحية</span><span data-i18n="en">Healthcare</span>
+    <span data-i18n="ar">لوجستيات</span><span data-i18n="en">Logistics</span>
+    <span data-i18n="ar">تعليم</span><span data-i18n="en">EdTech</span>
+    <span data-i18n="ar">تنقل</span><span data-i18n="en">Mobility</span>
+    <span data-i18n="ar">خبرة في قطاعات</span><span data-i18n="en">Experience across</span>
+    <span data-i18n="ar">فنتك</span><span data-i18n="en">Fintech</span>
+    <span data-i18n="ar">تجارة إلكترونية</span><span data-i18n="en">E-commerce</span>
+    <span data-i18n="ar">رعاية صحية</span><span data-i18n="en">Healthcare</span>
+    <span data-i18n="ar">لوجستيات</span><span data-i18n="en">Logistics</span>
+    <span data-i18n="ar">تعليم</span><span data-i18n="en">EdTech</span>
+    <span data-i18n="ar">تنقل</span><span data-i18n="en">Mobility</span>
   </div>
 </section>
 
@@ -588,21 +607,21 @@
   </div>
 </section>
 
-<!-- TESTIMONIAL -->
+<!-- PHILOSOPHY -->
+<!-- ponytail: was a testimonial attributed to a fake named client — replaced with an honest
+     studio pull-quote (copywriting skill: no fabricated testimonials). Swap for a real client
+     quote, with permission, once one exists. -->
 <section class="py-28 md:py-36">
   <div class="max-w-4xl mx-auto px-5 md:px-8 text-center reveal">
     <div class="text-lime text-4xl mb-6">"</div>
     <p class="text-2xl md:text-3xl font-bold leading-snug">
-      <span data-i18n="ar">واجهة غيّرت الطريقة التي يتفاعل بها عملاؤنا مع منتجنا — تنفيذ سريع وذوق تصميمي رفيع المستوى.</span>
-      <span data-i18n="en">Wajhah changed how our customers interact with our product — fast execution and genuinely great taste.</span>
+      <span data-i18n="ar">لا نُطلق أي شيء قبل أن يصبح واضحاً دون جهد. إن احتاج المستخدم للتفكير مرتين، فالعمل لم يكتمل بعد.</span>
+      <span data-i18n="en">We don't ship until it feels obvious. If a user has to think twice, we're not done yet.</span>
     </p>
-    <div class="mt-8 flex items-center justify-center gap-3">
-      <div class="w-11 h-11 rounded-full bg-gradient-to-br from-lime to-teal"></div>
-      <div class="text-start">
-        <div class="font-bold text-sm"><span data-i18n="ar">سارة المطيري</span><span data-i18n="en">Sara Al-Mutairi</span></div>
-        <div class="text-xs text-white/50"><span data-i18n="ar">مديرة المنتج، نوفا للتجزئة</span><span data-i18n="en">Head of Product, Nova Retail</span></div>
-      </div>
-    </div>
+    <p class="mt-6 text-sm font-bold text-white/50 tracking-widest uppercase">
+      <span data-i18n="ar">فلسفة واجهة</span>
+      <span data-i18n="en">The Wajhah way</span>
+    </p>
   </div>
 </section>
 
@@ -617,14 +636,22 @@
       <span data-i18n="ar">أخبرنا عن مشروعك، وسنعود إليك خلال 24 ساعة.</span>
       <span data-i18n="en">Tell us about your project — we'll get back to you within 24 hours.</span>
     </p>
-    <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3" onsubmit="event.preventDefault(); this.querySelector('button').textContent = this.querySelector('button').dataset.sent;">
+    <form id="contactForm" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
       <label for="emailField" class="sr-only">Email</label>
       <input id="emailField" required type="email" placeholder="you@company.com" class="flex-1 bg-panel border border-line rounded-full px-5 py-4 text-sm focus:outline-none focus:border-lime/60 focus:ring-2 focus:ring-lime/60 focus:ring-offset-2 focus:ring-offset-ink" />
-      <button type="submit" data-sent="✓" class="btn-primary font-bold px-7 py-4 rounded-full text-sm shrink-0">
-        <span data-i18n="ar">تواصل معنا</span>
-        <span data-i18n="en">Get in touch</span>
+      <button type="submit" class="btn-primary font-bold px-7 py-4 rounded-full text-sm shrink-0 disabled:opacity-60 disabled:cursor-not-allowed">
+        <span data-i18n="ar">اطلب مكالمة</span>
+        <span data-i18n="en">Request a call</span>
       </button>
     </form>
+    <p id="formStatus" role="status" aria-live="polite" class="hidden mt-4 text-sm text-lime font-semibold">
+      <span data-i18n="ar">تم الإرسال — سنتصل بك خلال 24 ساعة.</span>
+      <span data-i18n="en">Sent — we'll call you within 24 hours.</span>
+    </p>
+    <p class="mt-3 text-xs text-white/40">
+      <span data-i18n="ar">لا رسائل مزعجة. لن نشارك بريدك مع أي طرف.</span>
+      <span data-i18n="en">No spam. We won't share your email.</span>
+    </p>
   </div>
 </section>
 </main>
@@ -669,6 +696,16 @@
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
   }, { threshold: 0.15 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ponytail: shows a real bilingual confirmation instead of mutating the button's own
+  // innerHTML (which used to destroy its data-i18n spans, breaking the language toggle
+  // for that button after the first submit).
+  const contactForm = document.getElementById('contactForm');
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    contactForm.querySelector('button').disabled = true;
+    document.getElementById('formStatus').classList.remove('hidden');
+  });
 </script>
 
 </body>
