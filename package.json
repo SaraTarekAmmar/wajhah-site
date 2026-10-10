@@ -1,0 +1,11 @@
+{
+  "name": "wajhah-site",
+  "private": true,
+  "scripts": {
+    "test": "node check-i18n.js && node check-links.js && node check-contrast.js",
+    "build:css": "tailwindcss -i ./src/input.css -o ./dist/styles.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

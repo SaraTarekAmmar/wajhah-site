@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Wajhah",
+  "alternateName": "واجهة",
+  "description": "Wajhah (واجهة) is a bilingual Arabic/English UI/UX, front-end development, and mobile app studio delivering brand identity, interface design, and product engineering for clients across the MENA region.",
+  "url": "https://wajhah.studio/",
+  "logo": "https://wajhah.studio/PLACEHOLDER-logo.png",
+  "image": "https://wajhah.studio/PLACEHOLDER-cover.png",
+  "priceRange": "$$",
+  "areaServed": [
+    {
+      "@type": "Place",
+      "name": "MENA region"
+    }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "PLACEHOLDER — insert real street address",
+    "addressLocality": "PLACEHOLDER — insert real city",
+    "addressCountry": "PLACEHOLDER — insert real country code (e.g. SA, AE, EG)"
+  },
+  "telephone": "PLACEHOLDER — insert real phone number in +XXXXXXXXXXX format",
+  "email": "PLACEHOLDER — insert real contact email",
+  "sameAs": [
+    "https://www.instagram.com/PLACEHOLDER",
+    "https://twitter.com/PLACEHOLDER",
+    "https://www.linkedin.com/company/PLACEHOLDER",
+    "https://dribbble.com/PLACEHOLDER",
+    "https://behance.net/PLACEHOLDER"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Wajhah Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "UI/UX Design",
+          "description": "User research, wireframing, and interface design for web and mobile products."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Front-End Development",
+          "description": "Responsive, performant front-end builds for web applications."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Mobile App Development",
+          "description": "Native and cross-platform mobile application development."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Brand & Identity",
+          "description": "Brand identity systems including logo, visual language, and guidelines."
+        }
+      }
+    ]
+  }
+}

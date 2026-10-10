@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wajhah | واجهة — UI/UX, Frontend &amp; Mobile Studio</title>
+<meta name="description" content="واجهة — استوديو تصميم وتطوير متخصص في تجربة المستخدم، الواجهات الأمامية، وتطبيقات الجوال." />
+<meta name="theme-color" content="#07140f" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%2307140f'/%3E%3Cpath d='M6 14L15 34L24 18L33 34L42 14' stroke='%238CE562' stroke-width='5.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
+<meta property="og:title" content="Wajhah | واجهة — UI/UX, Frontend & Mobile Studio" />
+<meta property="og:description" content="واجهة — استوديو تصميم وتطوير متخصص في تجربة المستخدم، الواجهات الأمامية، وتطبيقات الجوال." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://wajhah.studio/" />
+<meta property="og:locale" content="ar_AR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Wajhah | واجهة" />
+<meta name="twitter:description" content="UI/UX, Frontend & Mobile Studio" />
+<!-- TODO before launch: swap https://wajhah.studio/ for the real domain, and fill in a real
+     logo/cover image URL. address/telephone/email/sameAs are deliberately omitted below —
+     add them once there's a real business address, phone, and social accounts; shipping
+     placeholder values in structured data is worse than leaving fields out. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Wajhah",
+  "alternateName": "واجهة",
+  "description": "Wajhah (واجهة) is a bilingual Arabic/English UI/UX, front-end development, and mobile app studio delivering brand identity, interface design, and product engineering for clients across the MENA region.",
+  "url": "https://wajhah.studio/",
+  "priceRange": "$$",
+  "areaServed": [{ "@type": "Place", "name": "MENA region" }],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Wajhah Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "UI/UX Design", "description": "User research, wireframing, and interface design for web and mobile products." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Front-End Development", "description": "Responsive, performant front-end builds for web applications." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile App Development", "description": "Native and cross-platform mobile application development." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand & Identity", "description": "Brand identity systems including logo, visual language, and guidelines." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Design Systems", "description": "Documented component libraries and shared design tokens for multi-product consistency." } }
+    ]
+  }
+}
+</script>
+<link rel="canonical" href="https://wajhah.studio/" />
+<meta name="robots" content="index, follow" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Compiled Tailwind build (was cdn.tailwindcss.com, a render-blocking runtime JIT compiler —
+     see PROJECT_IMPROVEMENTS.md "Round 3"). Rebuild after any class-name change: npm run build:css -->
+<link rel="stylesheet" href="dist/styles.css">
+<style>
+  :root{ color-scheme: dark; }
+  body{ background:#07140f; }
+  html[lang="ar"] body{ font-family:'Tajawal', sans-serif; }
+  html[lang="en"] body{ font-family:'Inter', sans-serif; }
+  .grain::before{
+    content:"";
+    position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .glow{
+    background: radial-gradient(60% 50% at 50% 0%, rgba(140,229,98,.18), transparent 70%);
+  }
+  .grad-text{
+    background: linear-gradient(90deg, #8CE562, #4ADE80 45%, #1FA384);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .card{
+    background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
+    border: 1px solid rgba(255,255,255,.08);
+  }
+  .card:hover{ border-color: rgba(140,229,98,.4); transform: translateY(-4px); }
+  .btn-primary{
+    background: linear-gradient(90deg, #8CE562, #4ADE80);
+    color:#07140f;
+  }
+  .btn-primary:hover{ filter: brightness(1.08); }
+  .num{ font-variant-numeric: tabular-nums; }
+  [data-i18n]{ display:none; }
+  html[lang="ar"] [data-i18n="ar"]{ display:revert; }
+  html[lang="en"] [data-i18n="en"]{ display:revert; }
+  .marquee{ animation: scroll 28s linear infinite; }
+  @keyframes scroll{ from{ transform: translateX(0) } to{ transform: translateX(-50%) } }
+  html[lang="en"] .marquee{ animation-direction: reverse; }
+  .reveal{ opacity:0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.show{ opacity:1; transform:none; }
+  .skip-link{ position:absolute; left:1rem; top:-3rem; background:#8CE562; color:#07140f; padding:.6rem 1rem; border-radius:.5rem; font-weight:700; font-size:.875rem; z-index:100; transition:top .2s ease; }
+  .skip-link:focus{ top:1rem; }
+  summary{ list-style:none; }
+  summary::-webkit-details-marker{ display:none; }
+  .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  @media (prefers-reduced-motion: reduce){
+    .marquee{ animation: none; }
+    .reveal{ opacity:1; transform:none; transition:none; }
+    *{ scroll-behavior:auto !important; }
+  }
+</style>
+</head>
+<body class="bg-ink text-white antialiased selection:bg-lime/30 grain">
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- NAV -->
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-ink/70 border-b border-line">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 h-16 md:h-20 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2 shrink-0">
+      <svg width="34" height="34" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 14L15 34L24 18L33 34L42 14" stroke="url(#lg)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs><linearGradient id="lg" x1="6" y1="14" x2="42" y2="34" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#8CE562"/><stop offset="1" stop-color="#1FA384"/>
+        </linearGradient></defs>
+      </svg>
+      <span class="font-extrabold text-lg tracking-tight" data-i18n="ar">واجهة</span>
+      <span class="font-extrabold text-lg tracking-tight" data-i18n="en">Wajhah</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-white/80">
+      <a href="#services" class="hover:text-lime transition" data-i18n="ar">الخدمات</a>
+      <a href="#services" class="hover:text-lime transition" data-i18n="en">Services</a>
+      <a href="#work" class="hover:text-lime transition" data-i18n="ar">أعمالنا</a>
+      <a href="#work" class="hover:text-lime transition" data-i18n="en">Work</a>
+      <a href="#process" class="hover:text-lime transition" data-i18n="ar">منهجيتنا</a>
+      <a href="#process" class="hover:text-lime transition" data-i18n="en">Process</a>
+      <a href="#about" class="hover:text-lime transition" data-i18n="ar">من نحن</a>
+      <a href="#about" class="hover:text-lime transition" data-i18n="en">About</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <button id="langToggle" aria-label="Switch language" class="text-xs font-bold tracking-wider px-3 py-2 rounded-full border border-line hover:border-lime/50 transition">
+        <span data-i18n="ar">EN</span>
+        <span data-i18n="en">AR</span>
+      </button>
+      <a href="#contact" class="hidden sm:inline-flex btn-primary text-sm font-bold px-5 py-2.5 rounded-full transition">
+        <span data-i18n="ar">ابدأ مشروعك</span>
+        <span data-i18n="en">Start a project</span>
+      </a>
+      <input type="checkbox" id="navToggle" class="peer sr-only" />
+      <label for="navToggle" aria-label="Open menu" class="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-line cursor-pointer shrink-0">
+        <span class="sr-only">Menu</span>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 5h14M2 9h14M2 13h14" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </label>
+      <nav class="hidden peer-checked:flex md:!hidden absolute top-16 inset-x-0 flex-col gap-1 bg-ink/95 backdrop-blur-md border-b border-line px-5 py-4 text-sm font-medium text-white/80">
+        <a href="#services" class="py-2.5" data-i18n="ar">الخدمات</a>
+        <a href="#services" class="py-2.5" data-i18n="en">Services</a>
+        <a href="#work" class="py-2.5" data-i18n="ar">أعمالنا</a>
+        <a href="#work" class="py-2.5" data-i18n="en">Work</a>
+        <a href="#process" class="py-2.5" data-i18n="ar">منهجيتنا</a>
+        <a href="#process" class="py-2.5" data-i18n="en">Process</a>
+        <a href="#about" class="py-2.5" data-i18n="ar">من نحن</a>
+        <a href="#about" class="py-2.5" data-i18n="en">About</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<!-- HERO -->
+<section class="relative pt-40 pb-24 md:pt-52 md:pb-32 glow overflow-hidden">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 relative z-10">
+    <div class="flex items-center gap-2 mb-6 text-xs font-bold tracking-widest text-lime/90 uppercase">
+      <span class="w-2 h-2 rounded-full bg-lime animate-pulse"></span>
+      <span data-i18n="ar">استوديو تصميم وتطوير رقمي</span>
+      <span data-i18n="en">Digital Product Studio</span>
+    </div>
+
+    <h1 class="leading-[0.95] font-black tracking-tight max-w-5xl" style="font-size:clamp(2.75rem, 10vw, 6rem)">
+      <span data-i18n="ar">نصمّم واجهات<br/>تُحكى <span class="grad-text">قصصها</span></span>
+      <span data-i18n="en">We design interfaces<br/>that <span class="grad-text">tell stories</span></span>
+    </h1>
+
+    <p class="mt-8 max-w-xl text-lg text-white/65 leading-relaxed">
+      <span data-i18n="ar">واجهة فريق متخصص في تصميم تجربة وواجهة المستخدم، تطوير الواجهات الأمامية، وتطبيقات الجوال — نحوّل الأفكار إلى منتجات رقمية جاهزة للإطلاق.</span>
+      <span data-i18n="en">Wajhah is a small, senior team of UI/UX designers and front-end & mobile engineers — we turn ideas into launch-ready digital products.</span>
+    </p>
+
+    <div class="mt-10 flex flex-wrap items-center gap-4">
+      <a href="#contact" class="btn-primary font-bold px-7 py-4 rounded-full text-sm transition">
+        <span data-i18n="ar">احجز مكالمة تعارف</span>
+        <span data-i18n="en">Book a discovery call</span>
+      </a>
+      <a href="#work" class="font-bold px-7 py-4 rounded-full text-sm border border-line hover:border-lime/50 transition">
+        <span data-i18n="ar">شاهد أعمالنا ↓</span>
+        <span data-i18n="en">See our work ↓</span>
+      </a>
+    </div>
+
+    <div class="mt-20 grid grid-cols-3 max-w-lg gap-8 border-t border-line pt-8">
+      <div>
+        <div class="text-3xl md:text-4xl font-black num">40+</div>
+        <div class="text-xs text-white/50 mt-1" data-i18n="ar">مشروع منجز</div>
+        <div class="text-xs text-white/50 mt-1" data-i18n="en">Projects shipped</div>
+      </div>
+      <div>
+        <div class="text-3xl md:text-4xl font-black num">6<span class="text-lime">+</span></div>
+        <div class="text-xs text-white/50 mt-1" data-i18n="ar">سنوات خبرة</div>
+        <div class="text-xs text-white/50 mt-1" data-i18n="en">Years in the field</div>
+      </div>
+      <div>
+        <div class="text-3xl md:text-4xl font-black num">98%</div>
+        <div class="text-xs text-white/50 mt-1" data-i18n="ar">رضا العملاء</div>
+        <div class="text-xs text-white/50 mt-1" data-i18n="en">Client satisfaction</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO MARQUEE -->
+<section class="border-y border-line py-7 overflow-hidden bg-panel/40">
+  <div class="flex whitespace-nowrap marquee gap-16 text-white/35 font-bold text-xl tracking-widest">
+    <span data-i18n="ar">عملاء يثقون بنا</span><span data-i18n="en">Trusted by</span>
+    <span>FINTECH CO</span><span>NOVA RETAIL</span><span>ORBIT HEALTH</span><span>KANZ GROUP</span><span>LOOP MOBILITY</span><span>DAR LOGISTICS</span>
+    <span data-i18n="ar">عملاء يثقون بنا</span><span data-i18n="en">Trusted by</span>
+    <span>FINTECH CO</span><span>NOVA RETAIL</span><span>ORBIT HEALTH</span><span>KANZ GROUP</span><span>LOOP MOBILITY</span><span>DAR LOGISTICS</span>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-28 md:py-36">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 reveal">
+      <h2 class="text-4xl md:text-6xl font-black tracking-tight">
+        <span data-i18n="ar">ماذا نقدّم</span>
+        <span data-i18n="en">What we do</span>
+      </h2>
+      <p class="max-w-md text-white/55">
+        <span data-i18n="ar">من الفكرة الأولى حتى الإطلاق، نغطي كل طبقات المنتج الرقمي.</span>
+        <span data-i18n="en">From first sketch to launch day, we cover every layer of your digital product.</span>
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-5">
+      <!-- card -->
+      <div class="card reveal rounded-2xl p-7 transition duration-300">
+        <div class="w-12 h-12 rounded-xl bg-lime/10 flex items-center justify-center text-2xl mb-6">✦</div>
+        <h3 class="text-xl font-bold mb-3">
+          <span data-i18n="ar">تصميم UI/UX</span>
+          <span data-i18n="en">UI/UX Design</span>
+        </h3>
+        <p class="text-sm text-white/55 leading-relaxed">
+          <span data-i18n="ar">أبحاث مستخدم، تدفقات تفاعل، وأنظمة تصميم تجعل منتجك بديهياً وجميلاً.</span>
+          <span data-i18n="en">User research, interaction flows, and design systems that make your product intuitive and beautiful.</span>
+        </p>
+      </div>
+      <!-- card -->
+      <div class="card reveal rounded-2xl p-7 transition duration-300">
+        <div class="w-12 h-12 rounded-xl bg-lime/10 flex items-center justify-center text-2xl mb-6">⌁</div>
+        <h3 class="text-xl font-bold mb-3">
+          <span data-i18n="ar">تطوير الواجهات الأمامية</span>
+          <span data-i18n="en">Front-End Development</span>
+        </h3>
+        <p class="text-sm text-white/55 leading-relaxed">
+          <span data-i18n="ar">واجهات سريعة ومتجاوبة مبنية بأحدث تقنيات الويب — React وNext.js وغيرها.</span>
+          <span data-i18n="en">Fast, responsive interfaces built with modern web stacks — React, Next.js and beyond.</span>
+        </p>
+      </div>
+      <!-- card -->
+      <div class="card reveal rounded-2xl p-7 transition duration-300">
+        <div class="w-12 h-12 rounded-xl bg-lime/10 flex items-center justify-center text-2xl mb-6">▣</div>
+        <h3 class="text-xl font-bold mb-3">
+          <span data-i18n="ar">تطبيقات الجوال</span>
+          <span data-i18n="en">Mobile Apps</span>
+        </h3>
+        <p class="text-sm text-white/55 leading-relaxed">
+          <span data-i18n="ar">تطبيقات iOS وAndroid أصلية ومتعددة المنصات تُركّز على الأداء وتجربة الاستخدام.</span>
+          <span data-i18n="en">Native and cross-platform iOS/Android apps focused on performance and feel.</span>
+        </p>
+      </div>
+      <!-- card -->
+      <div class="card reveal rounded-2xl p-7 transition duration-300">
+        <div class="w-12 h-12 rounded-xl bg-lime/10 flex items-center justify-center text-2xl mb-6">◈</div>
+        <h3 class="text-xl font-bold mb-3">
+          <span data-i18n="ar">الهوية والعلامة التجارية</span>
+          <span data-i18n="en">Brand &amp; Identity</span>
+        </h3>
+        <p class="text-sm text-white/55 leading-relaxed">
+          <span data-i18n="ar">هوية بصرية متكاملة تمنح شركتك الناشئة حضوراً يُحسب له حساب.</span>
+          <span data-i18n="en">End-to-end visual identity that gives your startup a presence worth noticing.</span>
+        </p>
+      </div>
+      <!-- card -->
+      <div class="card reveal rounded-2xl p-7 transition duration-300">
+        <div class="w-12 h-12 rounded-xl bg-lime/10 flex items-center justify-center text-2xl mb-6">⬡</div>
+        <h3 class="text-xl font-bold mb-3">
+          <span data-i18n="ar">أنظمة التصميم</span>
+          <span data-i18n="en">Design Systems</span>
+        </h3>
+        <p class="text-sm text-white/55 leading-relaxed">
+          <span data-i18n="ar">مكتبات مكوّنات موثّقة ومتغيرات تصميم موحّدة تجعل كل منتج جديد أسرع في البناء وأكثر اتساقاً مع هويتك.</span>
+          <span data-i18n="en">Documented component libraries and shared design tokens that make every new product faster to build and consistent with your brand.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="py-28 md:py-36 bg-panel/40 border-y border-line">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <h2 class="text-4xl md:text-6xl font-black tracking-tight mb-16 reveal">
+      <span data-i18n="ar">كيف نعمل</span>
+      <span data-i18n="en">How we work</span>
+    </h2>
+
+    <div class="grid md:grid-cols-4 gap-8">
+      <div class="reveal">
+        <div class="text-5xl font-black text-lime/50 mb-4 num">01</div>
+        <h3 class="font-bold text-lg mb-2"><span data-i18n="ar">اكتشاف</span><span data-i18n="en">Discover</span></h3>
+        <p class="text-sm text-white/55"><span data-i18n="ar">نفهم أعمالك، مستخدميك، وأهدافك قبل أي تصميم.</span><span data-i18n="en">We dig into your business, users, and goals before touching pixels.</span></p>
+      </div>
+      <div class="reveal">
+        <div class="text-5xl font-black text-lime/50 mb-4 num">02</div>
+        <h3 class="font-bold text-lg mb-2"><span data-i18n="ar">تصميم</span><span data-i18n="en">Design</span></h3>
+        <p class="text-sm text-white/55"><span data-i18n="ar">نماذج أولية وتكرارات سريعة حتى نصل للتجربة الصحيحة.</span><span data-i18n="en">Rapid prototypes and iterations until the experience feels right.</span></p>
+      </div>
+      <div class="reveal">
+        <div class="text-5xl font-black text-lime/50 mb-4 num">03</div>
+        <h3 class="font-bold text-lg mb-2"><span data-i18n="ar">بناء</span><span data-i18n="en">Build</span></h3>
+        <p class="text-sm text-white/55"><span data-i18n="ar">تطوير نظيف وقابل للتوسع بأحدث الأدوات.</span><span data-i18n="en">Clean, scalable engineering using modern tooling.</span></p>
+      </div>
+      <div class="reveal">
+        <div class="text-5xl font-black text-lime/50 mb-4 num">04</div>
+        <h3 class="font-bold text-lg mb-2"><span data-i18n="ar">إطلاق</span><span data-i18n="en">Launch</span></h3>
+        <p class="text-sm text-white/55"><span data-i18n="ar">نُطلق المنتج ونستمر بالدعم والتحسين بعد الإطلاق.</span><span data-i18n="en">We ship it, then stick around for support and iteration.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="py-28 md:py-36">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 reveal">
+      <h2 class="text-4xl md:text-6xl font-black tracking-tight">
+        <span data-i18n="ar">أعمال مختارة</span>
+        <span data-i18n="en">Selected work</span>
+      </h2>
+      <a href="#contact" class="text-sm font-bold text-lime hover:underline">
+        <span data-i18n="ar">ناقش مشروعك →</span>
+        <span data-i18n="en">Discuss your project →</span>
+      </a>
+    </div>
+
+    <!-- To add another case study: copy one whole <a class="card ...">...</a> block below,
+         bump the number (07), and edit the 3 bilingual pairs (metric badge, client name,
+         category) — every data-i18n="ar" needs its data-i18n="en" sibling right after it,
+         or `npm test` (check-i18n.js) will fail the build. -->
+    <div class="grid md:grid-cols-2 gap-6">
+      <a href="#" class="card reveal group rounded-2xl overflow-hidden block">
+        <div class="aspect-[4/3] bg-gradient-to-br from-panel2 to-teal/20 flex items-center justify-center text-6xl font-black text-white/10 group-hover:text-lime/20 transition relative">
+          01
+          <span class="absolute top-4 start-4 bg-lime/15 text-lime text-xs font-bold px-3 py-1 rounded-full">+64% <span data-i18n="ar">تفعيل</span><span data-i18n="en">activation</span></span>
+        </div>
+        <div class="p-6 flex items-center justify-between">
+          <div>
+            <h3 class="font-bold text-lg"><span data-i18n="ar">تطبيق نَبض المصرفي</span><span data-i18n="en">Nabd Banking App</span></h3>
+            <p class="text-sm text-white/50 mt-1"><span data-i18n="ar">تطبيق جوال · تجربة مستخدم</span><span data-i18n="en">Mobile App · UX</span></p>
+          </div>
+          <span class="text-lime text-xl">↗</span>
+        </div>
+      </a>
+      <a href="#" class="card reveal group rounded-2xl overflow-hidden block">
+        <div class="aspect-[4/3] bg-gradient-to-br from-panel2 to-mint/20 flex items-center justify-center text-6xl font-black text-white/10 group-hover:text-lime/20 transition relative">
+          02
+          <span class="absolute top-4 start-4 bg-lime/15 text-lime text-xs font-bold px-3 py-1 rounded-full">+2.1x <span data-i18n="ar">مبيعات</span><span data-i18n="en">sales</span></span>
+        </div>
+        <div class="p-6 flex items-center justify-between">
+          <div>
+            <h3 class="font-bold text-lg"><span data-i18n="ar">منصة كنز التجارية</span><span data-i18n="en">Kanz Commerce Platform</span></h3>
+            <p class="text-sm text-white/50 mt-1"><span data-i18n="ar">ويب · نظام تصميم</span><span data-i18n="en">Web · Design System</span></p>
+          </div>
+          <span class="text-lime text-xl">↗</span>
+        </div>
+      </a>
+      <a href="#" class="card reveal group rounded-2xl overflow-hidden block">
+        <div class="aspect-[4/3] bg-gradient-to-br from-panel2 to-lime/20 flex items-center justify-center text-6xl font-black text-white/10 group-hover:text-lime/20 transition relative">
+          03
+          <span class="absolute top-4 start-4 bg-lime/15 text-lime text-xs font-bold px-3 py-1 rounded-full">4.9★ <span data-i18n="ar">تقييم</span><span data-i18n="en">app rating</span></span>
+        </div>
+        <div class="p-6 flex items-center justify-between">
+          <div>
+            <h3 class="font-bold text-lg"><span data-i18n="ar">أوربت للرعاية الصحية</span><span data-i18n="en">Orbit Health</span></h3>
+            <p class="text-sm text-white/50 mt-1"><span data-i18n="ar">تطبيق جوال · هوية بصرية</span><span data-i18n="en">Mobile App · Branding</span></p>
+          </div>
+          <span class="text-lime text-xl">↗</span>
+        </div>
+      </a>
+      <a href="#" class="card reveal group rounded-2xl overflow-hidden block">
+        <div class="aspect-[4/3] bg-gradient-to-br from-panel2 to-teal/20 flex items-center justify-center text-6xl font-black text-white/10 group-hover:text-lime/20 transition relative">
+          04
+          <span class="absolute top-4 start-4 bg-lime/15 text-lime text-xs font-bold px-3 py-1 rounded-full">-38% <span data-i18n="ar">وقت الحجز</span><span data-i18n="en">booking time</span></span>
+        </div>
+        <div class="p-6 flex items-center justify-between">
+          <div>
+            <h3 class="font-bold text-lg"><span data-i18n="ar">لووب للتنقل</span><span data-i18n="en">Loop Mobility</span></h3>
+            <p class="text-sm text-white/50 mt-1"><span data-i18n="ar">ويب · جوال</span><span data-i18n="en">Web · Mobile</span></p>
+          </div>
+          <span class="text-lime text-xl">↗</span>
+        </div>
+      </a>
+      <a href="#" class="card reveal group rounded-2xl overflow-hidden block">
+        <div class="aspect-[4/3] bg-gradient-to-br from-panel2 to-mint/20 flex items-center justify-center text-6xl font-black text-white/10 group-hover:text-lime/20 transition relative">
+          05
+          <span class="absolute top-4 start-4 bg-lime/15 text-lime text-xs font-bold px-3 py-1 rounded-full">-45% <span data-i18n="ar">وقت التسليم</span><span data-i18n="en">delivery time</span></span>
+        </div>
+        <div class="p-6 flex items-center justify-between">
+          <div>
+            <h3 class="font-bold text-lg"><span data-i18n="ar">درب للخدمات اللوجستية</span><span data-i18n="en">Darb Logistics</span></h3>
+            <p class="text-sm text-white/50 mt-1"><span data-i18n="ar">ويب · لوحة تحكم</span><span data-i18n="en">Web · Dashboard</span></p>
+          </div>
+          <span class="text-lime text-xl">↗</span>
+        </div>
+      </a>
+      <a href="#" class="card reveal group rounded-2xl overflow-hidden block">
+        <div class="aspect-[4/3] bg-gradient-to-br from-panel2 to-lime/20 flex items-center justify-center text-6xl font-black text-white/10 group-hover:text-lime/20 transition relative">
+          06
+          <span class="absolute top-4 start-4 bg-lime/15 text-lime text-xs font-bold px-3 py-1 rounded-full">+3x <span data-i18n="ar">إتمام الدورات</span><span data-i18n="en">course completion</span></span>
+        </div>
+        <div class="p-6 flex items-center justify-between">
+          <div>
+            <h3 class="font-bold text-lg"><span data-i18n="ar">مسار التعليمية</span><span data-i18n="en">Masar Learning</span></h3>
+            <p class="text-sm text-white/50 mt-1"><span data-i18n="ar">ويب · جوال</span><span data-i18n="en">Web · Mobile</span></p>
+          </div>
+          <span class="text-lime text-xl">↗</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="py-28 md:py-36 border-t border-line">
+  <div class="max-w-5xl mx-auto px-5 md:px-8">
+    <h2 class="text-4xl md:text-6xl font-black tracking-tight mb-16 text-center reveal">
+      <span data-i18n="ar">لماذا واجهة؟</span>
+      <span data-i18n="en">Why Wajhah?</span>
+    </h2>
+    <div class="card rounded-2xl overflow-hidden reveal">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-line text-white/50">
+            <th class="text-start p-5 font-medium"></th>
+            <th class="p-5 font-bold text-lime">
+              <span data-i18n="ar">واجهة</span><span data-i18n="en">Wajhah</span>
+            </th>
+            <th class="p-5 font-medium"><span data-i18n="ar">مستقل</span><span data-i18n="en">Freelancer</span></th>
+            <th class="p-5 font-medium"><span data-i18n="ar">فريق داخلي</span><span data-i18n="en">In-house</span></th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr class="border-b border-line">
+            <td class="text-start p-5 text-white/70"><span data-i18n="ar">تصميم + تطوير تحت سقف واحد</span><span data-i18n="en">Design + engineering under one roof</span></td>
+            <td class="p-5 text-lime font-bold">✓</td><td class="p-5 text-white/55">—</td><td class="p-5 text-white/60">✓</td>
+          </tr>
+          <tr class="border-b border-line">
+            <td class="text-start p-5 text-white/70"><span data-i18n="ar">بدء العمل خلال أيام لا أشهر</span><span data-i18n="en">Starts in days, not months</span></td>
+            <td class="p-5 text-lime font-bold">✓</td><td class="p-5 text-white/60">✓</td><td class="p-5 text-white/55">—</td>
+          </tr>
+          <tr class="border-b border-line">
+            <td class="text-start p-5 text-white/70"><span data-i18n="ar">بدون تكاليف توظيف دائمة</span><span data-i18n="en">No permanent hiring overhead</span></td>
+            <td class="p-5 text-lime font-bold">✓</td><td class="p-5 text-white/60">✓</td><td class="p-5 text-white/55">—</td>
+          </tr>
+          <tr>
+            <td class="text-start p-5 text-white/70"><span data-i18n="ar">فريق يتوسع مع مشروعك</span><span data-i18n="en">Team that scales with your project</span></td>
+            <td class="p-5 text-lime font-bold">✓</td><td class="p-5 text-white/55">—</td><td class="p-5 text-white/60">✓</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-28 md:py-36 bg-panel/40 border-y border-line">
+  <div class="max-w-3xl mx-auto px-5 md:px-8">
+    <h2 class="text-4xl md:text-6xl font-black tracking-tight mb-16 reveal">
+      <span data-i18n="ar">أسئلة شائعة</span>
+      <span data-i18n="en">FAQ</span>
+    </h2>
+    <!-- To add another FAQ: copy one whole <details class="card ...">...</details> block below
+         and edit its 2 bilingual pairs (question, answer) — keep ar immediately followed by en. -->
+    <div class="space-y-3 reveal">
+      <details class="card rounded-2xl p-6 group">
+        <summary class="cursor-pointer font-bold flex items-center justify-between list-none">
+          <span><span data-i18n="ar">كم تستغرق مدة المشروع عادةً؟</span><span data-i18n="en">How long does a typical project take?</span></span>
+          <span class="text-lime group-open:rotate-45 transition">+</span>
+        </summary>
+        <p class="text-sm text-white/55 mt-3 leading-relaxed">
+          <span data-i18n="ar">تختلف حسب النطاق — تصميم MVP يأخذ عادة 3-4 أسابيع، بينما منتج كامل مع تطوير قد يمتد 8-12 أسبوعاً.</span>
+          <span data-i18n="en">It depends on scope — an MVP design usually takes 3-4 weeks, while a full product with engineering can run 8-12 weeks.</span>
+        </p>
+      </details>
+      <details class="card rounded-2xl p-6 group">
+        <summary class="cursor-pointer font-bold flex items-center justify-between list-none">
+          <span><span data-i18n="ar">هل تعملون مع شركات ناشئة صغيرة؟</span><span data-i18n="en">Do you work with early-stage startups?</span></span>
+          <span class="text-lime group-open:rotate-45 transition">+</span>
+        </summary>
+        <p class="text-sm text-white/55 mt-3 leading-relaxed">
+          <span data-i18n="ar">نعم، غالبية عملائنا شركات ناشئة في مراحلها الأولى تحتاج منتجاً جاهزاً للسوق بسرعة.</span>
+          <span data-i18n="en">Yes — most of our clients are early-stage startups that need a market-ready product fast.</span>
+        </p>
+      </details>
+      <details class="card rounded-2xl p-6 group">
+        <summary class="cursor-pointer font-bold flex items-center justify-between list-none">
+          <span><span data-i18n="ar">هل يمكنكم الانضمام لفريقنا الحالي؟</span><span data-i18n="en">Can you plug into our existing team?</span></span>
+          <span class="text-lime group-open:rotate-45 transition">+</span>
+        </summary>
+        <p class="text-sm text-white/55 mt-3 leading-relaxed">
+          <span data-i18n="ar">بالتأكيد — نعمل كامتداد لفريقكم الداخلي، سواء لتغطية التصميم أو التطوير أو كليهما.</span>
+          <span data-i18n="en">Absolutely — we plug in as an extension of your in-house team, covering design, engineering, or both.</span>
+        </p>
+      </details>
+      <details class="card rounded-2xl p-6 group">
+        <summary class="cursor-pointer font-bold flex items-center justify-between list-none">
+          <span><span data-i18n="ar">كيف تتم آلية التسعير؟</span><span data-i18n="en">How does pricing work?</span></span>
+          <span class="text-lime group-open:rotate-45 transition">+</span>
+        </summary>
+        <p class="text-sm text-white/55 mt-3 leading-relaxed">
+          <span data-i18n="ar">إما بسعر ثابت للمشروع أو اشتراك شهري للفرق التي تحتاج دعماً مستمراً — نحدد ذلك في مكالمة الاكتشاف.</span>
+          <span data-i18n="en">Either a fixed project price or a monthly retainer for teams needing ongoing support — we settle this on the discovery call.</span>
+        </p>
+      </details>
+      <details class="card rounded-2xl p-6 group">
+        <summary class="cursor-pointer font-bold flex items-center justify-between list-none">
+          <span><span data-i18n="ar">هل تقدّمون دعماً بعد الإطلاق؟</span><span data-i18n="en">Do you offer support after launch?</span></span>
+          <span class="text-lime group-open:rotate-45 transition">+</span>
+        </summary>
+        <p class="text-sm text-white/55 mt-3 leading-relaxed">
+          <span data-i18n="ar">نعم — نقدّم باقات صيانة شهرية تغطي الإصلاحات، التحديثات، ومراقبة الأداء، حتى لا يبقى منتجك دون متابعة بعد يوم الإطلاق.</span>
+          <span data-i18n="en">Yes — we offer monthly maintenance packages covering bug fixes, updates, and performance monitoring, so your product isn't left unattended after launch day.</span>
+        </p>
+      </details>
+      <details class="card rounded-2xl p-6 group">
+        <summary class="cursor-pointer font-bold flex items-center justify-between list-none">
+          <span><span data-i18n="ar">هل توقّعون اتفاقيات عدم إفصاح؟</span><span data-i18n="en">Do you sign NDAs?</span></span>
+          <span class="text-lime group-open:rotate-45 transition">+</span>
+        </summary>
+        <p class="text-sm text-white/55 mt-3 leading-relaxed">
+          <span data-i18n="ar">بالتأكيد — نوقّع NDA قبل أي نقاش تفصيلي، ونتعامل مع بيانات مشروعك ومستخدميك بسرية تامة طوال العمل وبعده.</span>
+          <span data-i18n="en">Of course — we sign an NDA before any detailed discussion, and treat your project and user data as strictly confidential throughout and after the engagement.</span>
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / WHY -->
+<section id="about" class="py-28 md:py-36 bg-panel/40 border-y border-line">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 grid md:grid-cols-2 gap-16 items-start">
+    <div class="reveal">
+      <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-6">
+        <span data-i18n="ar">فريق صغير، أثر كبير</span>
+        <span data-i18n="en">Small team, outsized impact</span>
+      </h2>
+      <p class="text-white/60 leading-relaxed text-lg">
+        <span data-i18n="ar">واجهة ليست وكالة ضخمة — نحن فريق مُركّز من المصممين والمطورين نعمل كامتداد لفريقك، بلا بيروقراطية وبلا طبقات إدارية زائدة.</span>
+        <span data-i18n="en">Wajhah isn't a giant agency — we're a focused team of designers and engineers who plug in as an extension of yours, without the layers.</span>
+      </p>
+      <p class="text-white/55 leading-relaxed mt-4">
+        <span data-i18n="ar">خلف واجهة مجموعة صغيرة من المصممين والمهندسين عملوا سابقاً على منتجات في شركات ناشئة وتقنية سريعة النمو. لا توظيف ضخم ولا طبقات موافقات — فقط أشخاص ينفذون بأنفسهم ويحاسبون على النتيجة.</span>
+        <span data-i18n="en">Behind Wajhah is a small group of designers and engineers who've shipped products at fast-growing startups and tech companies. No bloated hiring, no layers of approval — just people who build the work themselves and own the outcome.</span>
+      </p>
+    </div>
+    <div class="grid grid-cols-2 gap-6 reveal">
+      <div class="card rounded-2xl p-6">
+        <div class="text-lime font-black text-2xl mb-2">✓</div>
+        <h3 class="font-bold mb-1"><span data-i18n="ar">تواصل مباشر</span><span data-i18n="en">Direct access</span></h3>
+        <p class="text-sm text-white/50"><span data-i18n="ar">تتحدث مع من يصمم ويبني فعلياً.</span><span data-i18n="en">You talk to the people actually building.</span></p>
+      </div>
+      <div class="card rounded-2xl p-6">
+        <div class="text-lime font-black text-2xl mb-2">✓</div>
+        <h3 class="font-bold mb-1"><span data-i18n="ar">سرعة تنفيذ</span><span data-i18n="en">Fast turnaround</span></h3>
+        <p class="text-sm text-white/50"><span data-i18n="ar">دورات تصميم وتطوير أسبوعية.</span><span data-i18n="en">Weekly design and build cycles.</span></p>
+      </div>
+      <div class="card rounded-2xl p-6">
+        <div class="text-lime font-black text-2xl mb-2">✓</div>
+        <h3 class="font-bold mb-1"><span data-i18n="ar">خبرة متعددة المجالات</span><span data-i18n="en">Cross-domain expertise</span></h3>
+        <p class="text-sm text-white/50"><span data-i18n="ar">فنتك، تجارة، صحة، وأكثر.</span><span data-i18n="en">Fintech, commerce, health, and more.</span></p>
+      </div>
+      <div class="card rounded-2xl p-6">
+        <div class="text-lime font-black text-2xl mb-2">✓</div>
+        <h3 class="font-bold mb-1"><span data-i18n="ar">شراكة لا مشروع فقط</span><span data-i18n="en">Partnership, not a one-off</span></h3>
+        <p class="text-sm text-white/50"><span data-i18n="ar">نبقى معك بعد الإطلاق.</span><span data-i18n="en">We stay close after launch.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="py-28 md:py-36">
+  <div class="max-w-4xl mx-auto px-5 md:px-8 text-center reveal">
+    <div class="text-lime text-4xl mb-6">"</div>
+    <p class="text-2xl md:text-3xl font-bold leading-snug">
+      <span data-i18n="ar">واجهة غيّرت الطريقة التي يتفاعل بها عملاؤنا مع منتجنا — تنفيذ سريع وذوق تصميمي رفيع المستوى.</span>
+      <span data-i18n="en">Wajhah changed how our customers interact with our product — fast execution and genuinely great taste.</span>
+    </p>
+    <div class="mt-8 flex items-center justify-center gap-3">
+      <div class="w-11 h-11 rounded-full bg-gradient-to-br from-lime to-teal"></div>
+      <div class="text-start">
+        <div class="font-bold text-sm"><span data-i18n="ar">سارة المطيري</span><span data-i18n="en">Sara Al-Mutairi</span></div>
+        <div class="text-xs text-white/50"><span data-i18n="ar">مديرة المنتج، نوفا للتجزئة</span><span data-i18n="en">Head of Product, Nova Retail</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="py-28 md:py-36 glow border-t border-line">
+  <div class="max-w-4xl mx-auto px-5 md:px-8 text-center reveal">
+    <h2 class="text-4xl md:text-6xl font-black tracking-tight mb-6">
+      <span data-i18n="ar">لنبنِ شيئاً رائعاً معاً</span>
+      <span data-i18n="en">Let's build something great</span>
+    </h2>
+    <p class="text-white/55 text-lg mb-10 max-w-xl mx-auto">
+      <span data-i18n="ar">أخبرنا عن مشروعك، وسنعود إليك خلال 24 ساعة.</span>
+      <span data-i18n="en">Tell us about your project — we'll get back to you within 24 hours.</span>
+    </p>
+    <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3" onsubmit="event.preventDefault(); this.querySelector('button').textContent = this.querySelector('button').dataset.sent;">
+      <label for="emailField" class="sr-only">Email</label>
+      <input id="emailField" required type="email" placeholder="you@company.com" class="flex-1 bg-panel border border-line rounded-full px-5 py-4 text-sm focus:outline-none focus:border-lime/60 focus:ring-2 focus:ring-lime/60 focus:ring-offset-2 focus:ring-offset-ink" />
+      <button type="submit" data-sent="✓" class="btn-primary font-bold px-7 py-4 rounded-full text-sm shrink-0">
+        <span data-i18n="ar">تواصل معنا</span>
+        <span data-i18n="en">Get in touch</span>
+      </button>
+    </form>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-line py-14">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-2">
+      <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 14L15 34L24 18L33 34L42 14" stroke="#8CE562" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="font-bold"><span data-i18n="ar">واجهة</span><span data-i18n="en">Wajhah</span></span>
+    </div>
+    <p class="text-sm text-white/60">
+      <span data-i18n="ar">© 2026 واجهة. جميع الحقوق محفوظة.</span>
+      <span data-i18n="en">© 2026 Wajhah. All rights reserved.</span>
+    </p>
+    <div class="flex gap-6 text-sm text-white/50">
+      <a href="#" class="hover:text-lime transition">Instagram</a>
+      <a href="#" class="hover:text-lime transition">LinkedIn</a>
+      <a href="#" class="hover:text-lime transition">Behance</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const html = document.documentElement;
+  const toggle = document.getElementById('langToggle');
+  function setLang(lang){
+    html.lang = lang;
+    html.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    localStorage.setItem('wajhah-lang', lang);
+  }
+  toggle.addEventListener('click', () => setLang(html.lang === 'ar' ? 'en' : 'ar'));
+  setLang(localStorage.getItem('wajhah-lang') || 'ar');
+
+  // ponytail: close the mobile nav on link tap — checkbox toggle has no other way to self-close
+  const navToggle = document.getElementById('navToggle');
+  document.querySelectorAll('#navToggle ~ nav a').forEach(a => a.addEventListener('click', () => navToggle.checked = false));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
